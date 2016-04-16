@@ -1,10 +1,10 @@
 <?php
 
 function dbConnect(){
-	$user = root;
-	$pass = furjobs30;
-	$host = localhost;
-	$db = ghs;
+	$user = "root";
+	$pass = "furjobs30";
+	$host = "localhost";
+	$db = "ghs";
 
 	$con = new mysqli($host, $user, $pass, $db);
 	if ($con->connect_error){

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
+	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css"/>
 	<title>TEMPLATE</title>
 </head>
 <body>
@@ -9,10 +9,17 @@
 	<?php require "scripts/nav.php";?>
 
 
-	
-	<p>We need to load a list of games here to show off our "rich" library.</p>
-
-
+	<ul>
+	<?php
+		require 'scripts/ghslib.php';
+		$dbCon = dbConnect();
+		$sql = "SELECT * FROM games";
+		$result = $dbCon->query($sql);
+		while($row = $result->fetch_assoc()) {
+			echo "<li>" . $row[""] ."</li>";
+		}
+	?>
+	</ul>
 
 	<?php require "scripts/footer.php";?>
 </div>
