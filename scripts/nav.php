@@ -3,7 +3,7 @@
 		<li><a href="index.html">Home</a></li>
 		<li><a href="games.html">Games</a></li>
 		<li><a href="admin.html">Admin</a></li>
-		
+
 		<li style="float:right;margin:7px 16px 7px 16px;">
 			<form action="scripts/login.php" method="post">
 			Username/Password:
