@@ -27,8 +27,9 @@
 							MiddleInitial, LastName, Username, Password, Email, phoneNumber)
 							VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param("sssssssss", $bday, $address,$fname,$middleinit,$lname,$uname,$password,$email,$phone);
-
-
+		$stmt->execute();
+		
+		
 
 
 	?>
