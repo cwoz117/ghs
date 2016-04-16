@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
+	<title>TEMPLATE</title>
+</head>
+<body>
+	<?php require "scripts/header.php";?>
+<div class="content">
+	<?php require "scripts/nav.php";?>
+<h3>Users</h3>
+   <table>
+      <tr>
+         <th>AccountID</th>
+         <th>Birthday</th>
+         <th>Address</th>
+         <th>FirstName</th>
+         <th>MiddleInitial</th>
+         <th>LastName</th>
+         <th>Username</th>
+         <th>Password</th>
+         <th>Email</th>
+         <th>phoneNumber</th>
+      </tr>
+	<?php
+		require 'scripts/ghslib.php';
+		$dbCon = dbConnect();
+		$sql = "SELECT * FROM Users";
+		$result = $dbCon->query($sql);
+		while($row = $result->fetch_assoc()) {
+         echo "<tr>";
+			echo "<td>" . $row["AccountID"] ."</td>";
+         echo "<td>" . $row["Birthday"] ."</td>";
+         echo "<td>" . $row["Address"] ."</td>";
+         echo "<td>" . $row["FirstName"] ."</td>";
+         echo "<td>" . $row["MiddleInitial"] ."</td>";
+         echo "<td>" . $row["LastName"] ."</td>";
+         echo "<td>" . $row["username"] ."</td>";
+         echo "<td>" . $row["Password"] ."</td>";
+         echo "<td>" . $row["Email"] ."</td>";
+         echo "<td>" . $row["phoneNumber"] ."</td>";
+         echo "</tr>";
+		}
+	?>
+</table>
+
+<h3>Games</h3>
+<table>
+   <tr>
+      <th>GameID</th>
+      <th>title</th>
+      <th>RAMreq</th>
+      <th>CPUreq</th>
+      <th>HDDreq</th>
+      <th>Rating</th>
+   </tr>
+<?php
+   require 'scripts/ghslib.php';
+   $dbCon = dbConnect();
+   $sql = "SELECT * FROM Game";
+   $result = $dbCon->query($sql);
+   while($row = $result->fetch_assoc()) {
+      echo "<tr>";
+      echo "<td>" . $row["GameId"] ."</td>";
+      echo "<td>" . $row["Title"] ."</td>";
+      echo "<td>" . $row["RAMreq"] ."</td>";
+      echo "<td>" . $row["CPUreq"] ."</td>";
+      echo "<td>" . $row["HDDreq"] ."</td>";
+      echo "<td>" . $row["Rating"] ."</td>";
+      echo "</tr>";
+   }
+?>
+</table>
+
+<h3>Computers</h3>
+<table>
+   <tr>
+      <th>ComputerID</th>
+      <th>RAM</th>
+      <th>CPU</th>
+      <th>HDD</th>
+      <th>Bandwidth</th>
+   </tr>
+<?php
+   require 'scripts/ghslib.php';
+   $dbCon = dbConnect();
+   $sql = "SELECT * FROM Computer";
+   $result = $dbCon->query($sql);
+   while($row = $result->fetch_assoc()) {
+      echo "<tr>";
+      echo "<td>" . $row["ComputerId"] ."</td>";
+      echo "<td>" . $row["RAM"] ."</td>";
+      echo "<td>" . $row["CPU"] ."</td>";
+      echo "<td>" . $row["HDD"] ."</td>";
+      echo "<td>" . $row["Bandwidth"] ."</td>";
+      echo "</tr>";
+   }
+?>
+</table>
+
+<h3>Virtual Machines</h3>
+<table>
+   <tr>
+      <th>VirtualMachineID</th>
+      <th>ComputerID</th>
+      <th>AccountID</th>
+      <th>GameID</th>
+      <th>Price</th>
+      <th>IP</th>
+      <th>CPU Allocation</th>
+      <th>Bandwidth Allocation</th>
+      <th>HDD Allocation</th>
+      <th>RAM Allocation</th>
+   </tr>
+<?php
+   require 'scripts/ghslib.php';
+   $dbCon = dbConnect();
+   $sql = "SELECT * FROM VirtualMachine";
+   $result = $dbCon->query($sql);
+   while($row = $result->fetch_assoc()) {
+      echo "<tr>";
+      echo "<td>" . $row["VirtualMachineId"] ."</td>";
+      echo "<td>" . $row["ComputerId"] ."</td>";
+      echo "<td>" . $row["AccountId"] ."</td>";
+      echo "<td>" . $row["GameId"] ."</td>";
+      echo "<td>" . $row["Price"] ."</td>";
+      echo "<td>" . $row["IP"] ."</td>";
+      echo "<td>" . $row["CPUallo"] ."</td>";
+      echo "<td>" . $row["BANDallo"] ."</td>";
+      echo "<td>" . $row["HDDallo"] ."</td>";
+      echo "<td>" . $row["RAMallo"] ."</td>";
+      echo "</tr>";
+   }
+?>
+</table>
+
+<h3>Payment Information</h3>
+<table>
+   <tr>
+      <th>CardID</th>
+      <th>AccountID</th>
+      <th>CardNumber</th>
+      <th>Name on Card</th>
+      <th>Expiration Date</th>
+   </tr>
+<?php
+   require 'scripts/ghslib.php';
+   $dbCon = dbConnect();
+   $sql = "SELECT * FROM PaymentInfo";
+   $result = $dbCon->query($sql);
+   while($row = $result->fetch_assoc()) {
+      echo "<tr>";
+      echo "<td>" . $row["CardId"] ."</td>";
+      echo "<td>" . $row["AccountId"] ."</td>";
+      echo "<td>" . $row["CardNumber"] ."</td>";
+      echo "<td>" . $row["NameOnCard"] ."</td>";
+      echo "<td>" . $row["ExpirationDate"] ."</td>";
+      echo "</tr>";
+   }
+?>
+</table>
+
+<h3>Playing</h3>
+<table>
+   <tr>
+      <th>AccountID</th>
+      <th>GameID</th>
+      <th>User Configuration</th>
+   </tr>
+<?php
+   require 'scripts/ghslib.php';
+   $dbCon = dbConnect();
+   $sql = "SELECT * FROM Play";
+   $result = $dbCon->query($sql);
+   while($row = $result->fetch_assoc()) {
+      echo "<tr>";
+      echo "<td>" . $row["AccountId"] ."</td>";
+      echo "<td>" . $row["GameId"] ."</td>";
+      echo "<td>" . $row["UserConfig"] ."</td>";
+      echo "</tr>";
+   }
+?>
+</table>
+
+
+	<?php require "scripts/footer.php";?>
+</div>
+</body>
+</html>
