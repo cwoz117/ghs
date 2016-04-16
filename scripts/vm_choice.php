@@ -25,4 +25,5 @@
 				<input type="radio" id="high" name="option" value="high">
 			</fieldset></label><br/>
 			<input id="purch" type="submit" value="Buy">
+		</form>
 
