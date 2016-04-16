@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Game Hosting Solutions!</title>
-	<link rel="stylesheet" type="text/css" href="../styles/ghs_style.css">
-</head>
-<body>
-<div class="content">
-		<?php include("nav.php");?>
-		<section>
+
 		<form action="../scripts/payment.php" method="post">
 			<label for="low" class="option"><fieldset><legend>Low</legend>
 				<ul>
@@ -36,7 +26,4 @@
 			</fieldset></label><br/>
 			<input id="purch" type="submit" value="Buy">
 		</form>
-	</section>
-<div class="content">
-</body>
-</html>
+
