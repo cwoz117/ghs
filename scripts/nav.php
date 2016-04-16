@@ -9,6 +9,7 @@
 			<input type="text" name="uname">
 			<input type="text" name="pword">
 			<input type="submit" value="login">
+			</form>
 		</li>
 		<li style="float:right;border-left:1px solid #0B3C5D;">
 			<a href="register.html">Register</a>
