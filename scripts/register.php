@@ -23,10 +23,10 @@
 		$address = condition($_POST['address']);
 		$phone = condition($_POST['phone']);
 		
-		$stmt = $con->prepare("INSERT INTO Users (Birthday, Address, FirstName,
+		$stmt = $con->prepare("INSERT INTO Users (Address, FirstName,
 							MiddleInitial, LastName, Username, Password, Email, phoneNumber)
 							VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param("sssssssss", $bday, $address,$fname,$middleinit,$lname,$uname,$password,$email,$phone);
+		$stmt->bind_param("ssssssss", $address,$fname,$middleinit,$lname,$uname,$password,$email,$phone);
 		$stmt->execute();
 		
 		
