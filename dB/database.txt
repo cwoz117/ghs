@@ -1,0 +1,78 @@
+drop schema if exists ghs;
+
+create database ghs;
+
+use ghs;
+
+CREATE TABLE Users(
+    AccountId int not null,
+    Birthday date,
+    Address varchar(255),
+    FirstName varchar(255),
+    MiddleInitial char,
+    LastName varchar(255),
+    Username varchar(255),
+    Password varchar(255),
+    Email varchar(255),
+    phoneNumber varchar(255),
+    primary key (AccountId)
+);
+
+CREATE TABLE Game
+(
+    GameId int not null,
+    Title varchar(255),
+    RAMreq varchar(255),
+    CPUreq varchar(255),
+    HDDreq varchar(255),
+    Rating char,
+    primary key (GameId)
+);
+
+CREATE TABLE Computer
+(
+    ComputerId int not null,
+    RAM varchar(255),
+    CPU varchar(255),
+    HDD varchar(255),
+    Bandwidth varchar(255),
+    primary key (ComputerId)
+);
+
+CREATE TABLE VirtualMachine
+(
+    VirtualMachineId int not null,
+    ComputerId int not null,
+    AccountId int not null,
+    GameId int not null,
+    Price varchar(255),
+    IP varchar(255),
+    CPUallo varchar(255),
+    BANDallo varchar(255),
+    HDDallo varchar(255),
+    RAMallo varchar(255),
+    primary key (VirtualMachineId, ComputerId),
+    foreign key (ComputerId) references Computer(ComputerId),
+    foreign key (AccountId) references Users(AccountId),
+    foreign key (GameId) references Users(AccountId)
+);
+
+CREATE TABLE PaymentInfo
+(
+    CardId int not null,
+    AccountId int not null,
+    CardNumber int,
+    NameOnCard Varchar(255),
+    ExpirationDate date,
+    primary key (CardId,AccountId),
+    foreign key (AccountId) references Users(AccountId)
+);
+
+CREATE TABLE Play
+(
+    AccountId int not null,
+    GameId int not null,
+    UserConfig varchar(255),
+    primary key (AccountId),
+    foreign key (GameId) references Game(GameId)
+);
