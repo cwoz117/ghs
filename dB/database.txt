@@ -5,7 +5,7 @@ create database ghs;
 use ghs;
 
 CREATE TABLE Users(
-    AccountId int not null,
+    AccountId int not null auto_increment,
     Birthday date,
     Address varchar(255),
     FirstName varchar(255),
