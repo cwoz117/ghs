@@ -7,10 +7,7 @@
 <body>
 	<?php require "scripts/header.php";?>
 <div class="content">
-	<?php require "scripts/nav.php";?>
-
-
-	
+	<?php require "scripts/nav.php";?>	
 	<?php
 		$con = dbConnect();
 		$uname = condition($_POST['uname']);
@@ -24,20 +21,25 @@
 		$phone = condition($_POST['phone']);
 		
 		$stmt = $con->prepare("INSERT INTO Users (Address, FirstName,
-							MiddleInitial, LastName, Username, Password, Email, phoneNumber)
-							VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				       MiddleInitial, LastName, Username, Password, Email, phoneNumber)
+				       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
 		$stmt->bind_param("ssssssss", $address,$fname,$middleinit,$lname,$uname,$password,$email,$phone);
+		if ($stmt){
+			echo "query ok <br>";
+		} else {
+			die("Query error<br>";
+		}
+		
 		$stmt->execute();
 		
-		if ($stmt->error){
-			
-			echo "fucked up";
+		if ($stmt){
+			echo "Registration Successful";
 		}else {
-			echo "we'er good";
+			echo "Error During Registration";
 		}
 		
 
-
+		con->close();
 	?>
 
 
