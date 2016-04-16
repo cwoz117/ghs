@@ -29,6 +29,12 @@
 		$stmt->bind_param("ssssssss", $address,$fname,$middleinit,$lname,$uname,$password,$email,$phone);
 		$stmt->execute();
 		
+		if ($stmt->error){
+			
+			echo "fucked up";
+		}else {
+			echo "we'er good";
+		}
 		
 
 
