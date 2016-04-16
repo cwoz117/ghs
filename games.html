@@ -13,10 +13,10 @@
 	<?php
 		require 'scripts/ghslib.php';
 		$dbCon = dbConnect();
-		$sql = "SELECT * FROM games";
+		$sql = "SELECT Title FROM Game";
 		$result = $dbCon->query($sql);
 		while($row = $result->fetch_assoc()) {
-			echo "<li>" . $row[""] ."</li>";
+			echo "<li>" . $row["Title"] ."</li>";
 		}
 	?>
 	</ul>
