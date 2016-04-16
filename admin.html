@@ -2,6 +2,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
 	<title>TEMPLATE</title>
+	<?php require 'scripts/ghslib.php'; ?>
 </head>
 <body>
 	<?php require "scripts/header.php";?>
@@ -22,9 +23,8 @@
          <th>phoneNumber</th>
       </tr>
 	<?php
-		require 'scripts/ghslib.php';
 		$dbCon = dbConnect();
-		$sql = "SELECT * FROM Users";
+		$sql = "SELECT * FROM Users;";
 		$result = $dbCon->query($sql);
 		while($row = $result->fetch_assoc()) {
          echo "<tr>";
@@ -53,10 +53,11 @@
       <th>HDDreq</th>
       <th>Rating</th>
    </tr>
+
 <?php
-   require 'scripts/ghslib.php';
+/*
    $dbCon = dbConnect();
-   $sql = "SELECT * FROM Game";
+   $sql = "SELECT * FROM Game;";
    $result = $dbCon->query($sql);
    while($row = $result->fetch_assoc()) {
       echo "<tr>";
@@ -68,6 +69,7 @@
       echo "<td>" . $row["Rating"] ."</td>";
       echo "</tr>";
    }
+   * */
 ?>
 </table>
 
@@ -81,9 +83,9 @@
       <th>Bandwidth</th>
    </tr>
 <?php
-   require 'scripts/ghslib.php';
+/*
    $dbCon = dbConnect();
-   $sql = "SELECT * FROM Computer";
+   $sql = "SELECT * FROM Computer;";
    $result = $dbCon->query($sql);
    while($row = $result->fetch_assoc()) {
       echo "<tr>";
@@ -93,7 +95,7 @@
       echo "<td>" . $row["HDD"] ."</td>";
       echo "<td>" . $row["Bandwidth"] ."</td>";
       echo "</tr>";
-   }
+   }*/
 ?>
 </table>
 
@@ -111,10 +113,9 @@
       <th>HDD Allocation</th>
       <th>RAM Allocation</th>
    </tr>
-<?php
-   require 'scripts/ghslib.php';
+<?php/*
    $dbCon = dbConnect();
-   $sql = "SELECT * FROM VirtualMachine";
+   $sql = "SELECT * FROM VirtualMachine;";
    $result = $dbCon->query($sql);
    while($row = $result->fetch_assoc()) {
       echo "<tr>";
@@ -129,7 +130,7 @@
       echo "<td>" . $row["HDDallo"] ."</td>";
       echo "<td>" . $row["RAMallo"] ."</td>";
       echo "</tr>";
-   }
+   }*/
 ?>
 </table>
 
@@ -142,10 +143,9 @@
       <th>Name on Card</th>
       <th>Expiration Date</th>
    </tr>
-<?php
-   require 'scripts/ghslib.php';
+<?php/*
    $dbCon = dbConnect();
-   $sql = "SELECT * FROM PaymentInfo";
+   $sql = "SELECT * FROM PaymentInfo;";
    $result = $dbCon->query($sql);
    while($row = $result->fetch_assoc()) {
       echo "<tr>";
@@ -155,7 +155,7 @@
       echo "<td>" . $row["NameOnCard"] ."</td>";
       echo "<td>" . $row["ExpirationDate"] ."</td>";
       echo "</tr>";
-   }
+   }*/
 ?>
 </table>
 
@@ -166,10 +166,9 @@
       <th>GameID</th>
       <th>User Configuration</th>
    </tr>
-<?php
-   require 'scripts/ghslib.php';
+<?php/*
    $dbCon = dbConnect();
-   $sql = "SELECT * FROM Play";
+   $sql = "SELECT * FROM Play;";
    $result = $dbCon->query($sql);
    while($row = $result->fetch_assoc()) {
       echo "<tr>";
@@ -177,7 +176,7 @@
       echo "<td>" . $row["GameId"] ."</td>";
       echo "<td>" . $row["UserConfig"] ."</td>";
       echo "</tr>";
-   }
+   }*/
 ?>
 </table>
 
