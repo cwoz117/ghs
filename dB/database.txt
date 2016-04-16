@@ -20,7 +20,7 @@ CREATE TABLE Users(
 
 CREATE TABLE Game
 (
-    GameId int not null,
+    GameId int not null auto_increment,
     Title varchar(255),
     RAMreq varchar(255),
     CPUreq varchar(255),
@@ -31,7 +31,7 @@ CREATE TABLE Game
 
 CREATE TABLE Computer
 (
-    ComputerId int not null,
+    ComputerId int not null auto_increment,
     RAM varchar(255),
     CPU varchar(255),
     HDD varchar(255),
@@ -41,7 +41,7 @@ CREATE TABLE Computer
 
 CREATE TABLE VirtualMachine
 (
-    VirtualMachineId int not null,
+    VirtualMachineId int not null auto_increment,
     ComputerId int not null,
     AccountId int not null,
     GameId int not null,
@@ -59,7 +59,7 @@ CREATE TABLE VirtualMachine
 
 CREATE TABLE PaymentInfo
 (
-    CardId int not null,
+    CardId int not null auto_increment,
     AccountId int not null,
     CardNumber int,
     NameOnCard Varchar(255),
@@ -70,7 +70,7 @@ CREATE TABLE PaymentInfo
 
 CREATE TABLE Play
 (
-    AccountId int not null,
+    AccountId int not null auto_increment,
     GameId int not null,
     UserConfig varchar(255),
     primary key (AccountId),
