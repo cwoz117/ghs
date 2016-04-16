@@ -28,7 +28,7 @@
 		$result = $dbCon->query($sql);
 		while($row = $result->fetch_assoc()) {
          echo "<tr>";
-			echo "<td>" . $row["AccountID"] ."</td>";
+			echo "<td>" . $row["AccountId"] ."</td>";
          echo "<td>" . $row["Birthday"] ."</td>";
          echo "<td>" . $row["Address"] ."</td>";
          echo "<td>" . $row["FirstName"] ."</td>";
