@@ -2,7 +2,7 @@
 	<ul>
 		<li><a href="index.html">Home</a></li>
 		<li><a href="games.html">Games</a></li>
-		<li style="float:right;margin:14px 16px 0 16px;">
+		<li style="float:right;margin:14px 16px 14px 16px;">
 			<form action="scripts/login.php" method="post">
 			Username/Password:
 			<input type="text" name="uname">
