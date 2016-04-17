@@ -19,8 +19,9 @@
 			</li>';
 		}else {
 			echo '<li><a href="status.html">Status</a></li>';
-			echo '<li style="float:right;border-left:1px solid #0B3C5D;">' . $_SESSION['uname'] . '</li>';
-			echo '<li style="float:right;border-left:1px solid #0B3C5D;">
+		
+			echo '<li style="float:right;margin:14px 16px 0 16px;">' . $_SESSION['uname'] . '</li>';
+			echo '<li style="float:right;margin:14px 16px 0 16px;">
 				<form action="login.php" method="post">
 				<input type="submit" name="logout" value="logout">
 				</form></li>';

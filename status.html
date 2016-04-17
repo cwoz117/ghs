@@ -43,11 +43,14 @@
 			printf("<td> %s </td><td> %s </td><td>%s </td><td> %s </td>",$GameId, $IP, $CPUallo, $BANDallo);
 			printf("<td> %s </td><td> %s </td><td> %s </td>", $HDDallo, $RAMallo, $Price);
 		}
-		echo "</tr>";
+		echo "</tr></table>";
 		$stmt->close();
 		$dbCon->close();
 	?>
-	</table>
+
+	<form action="purchase.php" method="post">
+		<input type="submit" value="Buy a VM!">
+	</form>
 	<?php require "footer.php";?>
 </div>
 </body>
