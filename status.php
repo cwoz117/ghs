@@ -1,7 +1,7 @@
 <?php session_start ?>
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet" type="text/css" href="../styles/ghs_style.css">
+	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
 	<title>TEMPLATE</title>
 </head>
 <body>
