@@ -3,7 +3,7 @@
 ?>
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet" type="text/css" href="../styles/ghs_style.css">
+	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
 	<title>Login</title>
 	<?php require 'ghslib.php';?>
 </head>
@@ -17,7 +17,7 @@
 		$query = 'SELECT Password FROM Users WHERE Username="' . $_POST['uname'] . '";';
 		$result = $dbCon->query($query);
 		$row = $result->fetch_assoc();
-                
+
 		if($row['Password'] == $_POST["pass"] && $result->num_rows > 0)){
 			echo "<p>Logged In</p>";
 			$_SESSION["uname"] = $_POST["uname"];
