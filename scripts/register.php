@@ -11,8 +11,8 @@
 	require "nav.php";
 	$con = dbConnect();
 
-	$uname = condition($_POST['uname']);
-	$password = condition($_POST['pass']);
+	$uname = $_POST['uname'];
+	$password = $_POST['pass'];
 	$email = condition($_POST['email']);
 	$fname = condition($_POST['fname']);
 	$middleinit = condition($_POST['mname']);
