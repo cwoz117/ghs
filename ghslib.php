@@ -16,7 +16,7 @@ function dbConnect(){
 function condition($input){
 	$input =trim($input);
 	$input = stripslashes($input);
-	$input = htmlspecialchars($data);
+	$input = htmlspecialchars($input);
 	return $input;
 }
 

@@ -10,21 +10,20 @@
 <div class="content">
 	<?php require "nav.php";?>
 
-	<?php
-		$n = $_SESSION['uname']; 
+	<?php 
 		$dbCon = dbConnect();
-		$stmt = $dbCon->prepare("SELECT AccountId FROM Users WHERE Username=?;");
-		$stmt->bind_param("s", $n);
-		$accountID = $stmt->execute();
+		$sql = 'SELECT AccountId FROM Users WHERE Username="' . $_SESSION['uname'] . '";';
+		$accountID = $dbCon->query($sql);
+	
 	?>
 
 	<h2>Welcome <?php echo  $_SESSION['uname']; ?>!</h2>
 	
 	<?php
-
-
-		$stmt = $dbCon->prepare("SELECT * FROM VirtualMachine WHERE AccountId=?;");
-		$stmt->bind_param("i", $accountID);
+	
+			
+		$stmt = $dbCon->prepare("SELECT GameId, Price, IP, CPUallo, BANDallo, HDDallo, RAMallo FROM VirtualMachine WHERE AccountId=?;");
+		$stmt->bind_param("d", $accountID);
 		$result = $stmt->execute();
 		
 	
