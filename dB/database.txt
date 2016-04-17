@@ -75,6 +75,6 @@ CREATE TABLE Play
     GameId int not null,
     UserConfig varchar(255),
     primary key (AccountId),
-    foreign key (GameId) references Game(GameId)
+    foreign key (GameId) references Game(GameId),
     foreign key (AccountId) references Users(AccountId)
 );
