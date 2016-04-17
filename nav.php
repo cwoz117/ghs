@@ -18,7 +18,11 @@
 				<a href="register.html">Register</a>
 			</li>';
 		}else {
-			echo '<li>' . $_SESSION['uname'] . '</li>';
+			echo '<li style="float:right;border-left:1px solid #0B3C5D;">' . $_SESSION['uname'] . '</li>';
+			echo '<li style="float:right;border-left:1px solid #0B3C5D;">
+				<form action="login.php" method="post">
+				<input type="submit" name="logout" value="logout">
+				</form></li>';
 		}
 		?>
 	</ul>
