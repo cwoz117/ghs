@@ -5,9 +5,9 @@
 	<title>GHS Home</title>
 </head>
 <body>
-	<?php require "scripts/header.php";?>
+	<?php require "header.php";?>
 <div class="content">
-	<?php require "scripts/nav.php";?>
+	<?php require "nav.php";?>
 
 	<?php
 		if(!isset($_SESSION['username'])){
@@ -15,10 +15,10 @@
 			echo "<p>If the user is logged in, this should should his status page, including the option to buy VM's</p>";
 			echo "<p>Should be some php that checks if logged in load page x, otherwise load y etc.. </p>";
 		} else {
-			require "scripts/status.php";
+			require "status.php";
 		}
 	?>
-	<?php require "scripts/footer.php";?>
+	<?php require "footer.php";?>
 </div>
 </body>
 </html>

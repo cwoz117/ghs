@@ -4,23 +4,23 @@
 	<title>TEMPLATE</title>
 </head>
 <body>
-	<?php require "scripts/header.php";?>
+	<?php require "header.php";?>
 <div class="content">
-	<?php require "scripts/nav.php";?>
+	<?php require "nav.php";?>
 
-	<form action="scripts/register.php" method="post">
+	<form action="register.php" method="post">
 		Username: 	<input type="text" name="uname"> <br/>
 		Password: 	<input type="text" name="pass"> <br/>
 		Email: 		<input type="text" name="email"><br/>
 		First Name: 	<input type="text" name="fname">
-		Middle init. 	<input type="text" name="mname"> 
+		Middle init. 	<input type="text" name="mname">
 		Last Name: 	<input type="text" name="lname"> <br/>
 		Address: 	<input type="input" name="address"> <br/>
 		Phone: 		<input type="input" name="phone"><br/>
 				<input type="submit" value="submit">
 	</form>
 
-	<?php require "scripts/footer.php";?>
+	<?php require "footer.php";?>
 </div>
 </body>
 </html>
