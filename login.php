@@ -18,15 +18,15 @@
 		$result = $dbCon->query($query);
 		$row = $result->fetch_assoc();
 
-		if($row['Password'] === $_POST["pass"] && $result->num_rows > 0)){
+		if( ($row['Password'] === $_POST["pword"]) && ($result->num_rows > 0)){
 			echo "<p>Logged In</p>";
 			$_SESSION["uname"] = $_POST["uname"];
-			$_SESSION["pass"] = $_POST["pass"];
+			$_SESSION["pass"] = $_POST["pword"];
 		}else{
 			echo "<p>Not Logged In</p>";
 		}
+		require "footer.php";
 	?>
-	<?php require "footer.php";?>
 </div>
 </body>
 </html>

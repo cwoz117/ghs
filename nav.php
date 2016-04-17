@@ -5,7 +5,7 @@
 		<li><a href="admin.html">Admin</a></li>
 
 		<li style="float:right;margin:7px 16px 7px 16px;">
-			<form action="scripts/login.php" method="post">
+			<form action="login.php" method="post">
 			Username/Password:
 			<input type="text" name="uname">
 			<input type="text" name="pword">
