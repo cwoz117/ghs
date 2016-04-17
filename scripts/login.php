@@ -3,7 +3,7 @@
 ?>
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
+	<link rel="stylesheet" type="text/css" href="../styles/ghs_style.css">
 	<title>Login</title>
 	<?php require 'ghslib.php';?>
 </head>
