@@ -16,20 +16,20 @@
 		$stmt = $dbCon->prepare("SELECT AccountId FROM Users WHERE Username=?;");
 		$stmt->bind_param("s", $n);
 		$accountID = $stmt->execute();
+		$stmt->close();
+		$dbCon->close();
+
 	?>
 
-	<h2>Welcome <?php echo  $_SESSION['uname']; ?>!</h2>
+	<h2>Welcome <?php echo "$n"; ?>!</h2>
 	
 	<?php
-
-
+		$dbCon->dbConnect();
 		$stmt = $dbCon->prepare("SELECT * FROM VirtualMachine WHERE AccountId=?;");
 		$stmt->bind_param("i", $accountID);
 		$result = $stmt->execute();
-		
-	
-		echo $result;
-
+		$stmt->close();
+		$dbCon->close();
 	?>
 	<table><tr>
 		<th>Game</th>
@@ -40,23 +40,18 @@
 		<th>RAM</th>
 		<th>Price</th>
 	</tr>
-	<?php /*
+	<?php
 		while($row = $result->fetch_assoc()) {
-			echo "HELLO WORLD!?";
-			
 			echo "<tr>";
-			echo "<td>" . $row['GameId'] 	. "</td>";
-			echo "<td>" . $row['IP'] 	. "</td>";
-			echo "<td>" . $row['CPUallo'] 	. "</td>";
-			echo "<td>" . $row['BANDallo']	. "</td>";
-			echo "<td>" . $row['HDDallo'] 	. "</td>";
-			echo "<td>" . $row['RAMallo'] 	. "</td>";
-			echo "<td>" . $row['Price'] 	. "</td>";
+			echo "<td>" . $row['GameId']. "</td>";
+			echo "<td>" . $row['IP']. "</td>";
+			echo "<td>" . $row['CPUallo']. "</td>";
+			echo "<td>" . $row['BANDallo']. "</td>";
+			echo "<td>" . $row['HDDallo']. "</td>";
+			echo "<td>" . $row['RAMallo']. "</td>";
+			echo "<td>" . $row['Price']. "</td>";
 			echo "</tr>";
 		}
-		$stmt->close();
-		$dbCon->close();
-		*/
 	?>
 	</table>
 	<?php require "footer.php";?>
