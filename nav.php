@@ -18,7 +18,7 @@
 				<a href="register.html">Register</a>
 			</li>';
 		}else {
-			echo '<li><a href="status.php">Status</a></li>';
+			echo '<li><a href="status.html">Status</a></li>';
 			echo '<li style="float:right;border-left:1px solid #0B3C5D;">' . $_SESSION['uname'] . '</li>';
 			echo '<li style="float:right;border-left:1px solid #0B3C5D;">
 				<form action="login.php" method="post">
