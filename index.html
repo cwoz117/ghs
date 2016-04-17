@@ -1,4 +1,4 @@
-<?php start_session() ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
@@ -10,11 +10,11 @@
 	<?php require "scripts/nav.php";?>
 
 	<?php
-		if($_SESSION["username"]==null){
+		if(!isset($_SESSION['username'])){
 			echo "<p>Welcome to Game hosting solutions! Login to get to your status page</p>";
 			echo "<p>If the user is logged in, this should should his status page, including the option to buy VM's</p>";
 			echo "<p>Should be some php that checks if logged in load page x, otherwise load y etc.. </p>";
-		}else{
+		} else {
 			require "scripts/status.php";
 		}
 	?>
