@@ -5,12 +5,12 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
 	<title>Login</title>
-	<?php require 'scripts/ghslib.php';?>
+	<?php require 'ghslib.php';?>
 </head>
 <body>
-	<?php require "scripts/header.php";?>
+	<?php require "header.php";?>
 	<div class="content">
-	<?php require "scripts/nav.php";?>
+	<?php require "nav.php";?>
 
 	<?php
 		$dbCon = dbConnect();
@@ -25,7 +25,7 @@
 			echo "<p>Not Logged In</p>";
 		}
 	?>
-	<?php require "scripts/footer.php";?>
+	<?php require "footer.php";?>
 </div>
 </body>
 </html>

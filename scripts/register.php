@@ -6,12 +6,12 @@ echo "
 	<title>TEMPLATE</title>
 </head>
 <body>";
-require "scripts/header.php";
+require "header.php";
 echo "<div class="content">";
-require "scripts/nav.php";
+require "nav.php";
 		require "ghslib.php";
 		$con = dbConnect();
-		
+
 		$uname = condition($_POST['uname']);
 		$password = condition($_POST['pass']);
 		$email = condition($_POST['email']);
@@ -21,7 +21,7 @@ require "scripts/nav.php";
 		//$bday = condition($_POST['bday']);
 		$address = condition($_POST['address']);
 		$phone = condition($_POST['phone']);
-		
+
 		$stmt = $con->prepare("INSERT INTO Users (Address, FirstName, MiddleInitial, LastName, Username, Password, Email, phoneNumber)
 				       VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 		$stmt->bind_param("ssssssss", $address,$fname,$middleinit,$lname,$uname,$password,$email,$phone);
@@ -30,18 +30,18 @@ require "scripts/nav.php";
 		} else {
 			die("Query error<br>";
 		}
-		
+
 		$stmt->execute();
-		
+
 		if ($stmt){
 			echo "Registration Successful";
 		}else {
 			echo "Error During Registration";
 		}
-		
+
 
 		con->close();
-require "scripts/footer.php";
+require "footer.php";
 echo "
 </div>
 </body>
