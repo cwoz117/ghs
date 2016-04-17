@@ -20,16 +20,16 @@
         		$row = $result->fetch_assoc();
 
         		if( ($row['Password'] === $_POST["pword"]) && ($result->num_rows > 0)){
-        			echo "<p>Logged In</p>";
         			$_SESSION["uname"] = $_POST["uname"];
         			$_SESSION["pass"] = $_POST["pword"];
+				echo '<script>window.location.href="status.html"</script>';
         		}else{
         			echo "<p>Not Logged In</p>";
         		}
                 }else{
                         session_unset();
                         session_destroy();
-                        echo "<p>You have logged out</php";
+                        echo '<script>window.location.href="index.html"</script>';
                 }
 		require "footer.php";
 	?>

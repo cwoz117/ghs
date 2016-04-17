@@ -35,22 +35,21 @@
 	$stmt->close();
 	
 	// Get generated AccountID number for payment foreign key.
-	$stmt = $con->prepare("SELECT AccountId FROM Users where Username=?;");
-	$stmt = bind_param("s", $uname);
-	$stmt = bind_result($accountId);
-	$stmt = execute();
-	$stmt = fetch();
+	$stmt = $con->prepare("SELECT AccountId FROM Users WHERE Username=?;");
+	$stmt->bind_param("s", $uname);
+	$stmt->bind_result($accountId);
+	$stmt->execute();
+	$stmt->fetch();
 	$stmt->close();
 
-
-	// Add payment info
-	$stmt = $con->prepare("INSERT INTO PaymentInfo (AccountId, CardNumber, NameOnCard, ExpirationDate)
-				VALUES (?, ?, ?, ?);");
-	$stmt->bind_param("ssss", $accountId, $cardno, $cardname, $expdate);
+	//* Add payment info 
+	$stmt = $con->prepare("INSERT INTO PaymentInfo (AccountId, CardNumber, NameOnCard)
+				VALUES (?, ?, ?);");
+	$stmt->bind_param("ssss", $accountId, $cardno, $cardname);
 	$stmt->execute();
 	
 	if ($stmt){
-		echo "<p>Registration Successful</p>";
+		echo '<p>Registration Successful</p>';
 	} else {
 		echo "<p>There was an error during registration</p>";
 	}
