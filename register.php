@@ -45,7 +45,7 @@
 	//* Add payment info 
 	$stmt = $con->prepare("INSERT INTO PaymentInfo (AccountId, CardNumber, NameOnCard)
 				VALUES (?, ?, ?);");
-	$stmt->bind_param("ssss", $accountId, $cardno, $cardname);
+	$stmt->bind_param("sss", $accountId, $cardno, $cardname);
 	$stmt->execute();
 	
 	if ($stmt){
