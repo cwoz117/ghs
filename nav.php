@@ -6,7 +6,7 @@
 		<li><a href="admin.html">Admin</a></li>
 		<?php
 		if(!isset($_SESSION['uname'])){
-			echo 'li style="float:right;margin:7px 16px 7px 16px;">
+			echo '<li style="float:right;margin:7px 16px 7px 16px;">
 				<form action="login.php" method="post">
 				Username/Password:
 				<input type="text" name="uname">

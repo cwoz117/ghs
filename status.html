@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
@@ -7,10 +7,9 @@
 <body>
 	<?php require "header.php";?>
 <div class="content">
-	<?php require "nav.php";?>
-
 	<?php
-	require "ghslib.php";
+	require "nav.php";
+	require "ghslib.php";/*
 	$dbCon = dbConnect();
 	$sql = "SELECT AccountId FROM Users WHERE Username=" . $_SESSION["uname"] . ";";
 	$accountID = $dbCon->query($sql);
@@ -38,9 +37,7 @@
 		echo "<td>" . $row['Price'] . "</td>";
 		echo "</tr></table>"
 	}
-
-	?>
-	<?php require "footer.php";?>
+	require "footer.php";*/?>
 </div>
 </body>
 </html>
