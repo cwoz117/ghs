@@ -54,7 +54,7 @@ CREATE TABLE VirtualMachine
     primary key (VirtualMachineId, ComputerId),
     foreign key (ComputerId) references Computer(ComputerId),
     foreign key (AccountId) references Users(AccountId),
-    foreign key (GameId) references Users(AccountId)
+    foreign key (GameId) references Game(GameId)
 );
 
 CREATE TABLE PaymentInfo
@@ -70,9 +70,10 @@ CREATE TABLE PaymentInfo
 
 CREATE TABLE Play
 (
-    AccountId int not null auto_increment,
+    AccountId int not null,
     GameId int not null,
     UserConfig varchar(255),
     primary key (AccountId),
     foreign key (GameId) references Game(GameId)
+    foreign key (AccountId) references Users(AccountId)
 );
