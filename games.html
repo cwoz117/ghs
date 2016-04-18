@@ -4,19 +4,19 @@
 	<title>TEMPLATE</title>
 </head>
 <body>
-<?php require "header.php";?>
-<div class="content">
-<?php require "nav.php";?>
-<ul>
-<?php require 'ghslib.php';
-$dbCon = dbConnect();
-$sql = "SELECT Title FROM Game;";
-$result = $dbCon->query($sql);
-while($row = $result->fetch_assoc()) {
-	echo "<li>" . $row["Title"] ."</li>";
-} ?>
-</ul>
-<?php require "footer.php";?>
-</div>
+	<?php require "header.php";?>
+	<div class="content">
+		<?php require "nav.php";?>
+		<ul>
+			<?php require 'ghslib.php';
+			$dbCon = dbConnect();
+			$sql = "SELECT Title FROM Game;";
+			$result = $dbCon->query($sql);
+			while($row = $result->fetch_assoc()) {
+				echo "<li>" . $row["Title"] ."</li>";
+			} ?>
+		</ul>
+		<?php require "footer.php";?>
+	</div>
 </body>
 </html>

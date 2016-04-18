@@ -10,7 +10,7 @@
 <div class="content">
 	<?php require "nav.php";?>
 	<?php
-		$n = $_SESSION['uname']; 
+		$n = $_SESSION['uname'];
 		$dbCon = dbConnect();
 		$stmt = $dbCon->prepare("SELECT AccountId FROM Users WHERE Username=?;");
 		$stmt->bind_param("s", $n);
@@ -21,8 +21,8 @@
 	?>
 	<h2>Welcome <?php echo $n; ?>!</h2>
 	<?php
-		$stmt = $dbCon->prepare("SELECT Title, VirtualMachineId, IP, isRunning 
-				 	 FROM VirtualMachine, Game 
+		$stmt = $dbCon->prepare("SELECT Title, VirtualMachineId, IP, isRunning
+				 	 FROM VirtualMachine, Game
 				 	 WHERE AccountId=? AND Game.GameId = VirtualMachine.GameId;");
 		$stmt->bind_param("i", $accountID);
 		$stmt->execute();
@@ -34,16 +34,24 @@
 				echo "<table><td>IP:</td><td>$IP</td><td>Game:</td><td>$Title</td></table><br>";
 				echo "Status: $isRunning";
 			} else {
-				
+
 				echo '<form action="" method="POST">
-					<select name="game">
-						<option value="1">Minecraft</option>
-					</select>
+					<select name="game">';
+						$stmt2->$dbCon->prepare("SELECT Title FROM Game;");
+						$stmt2->execute();
+						$stmt2->bind_result($GameTitle);
+						$i = 1;
+						while($stmt2->fetch()){
+							echo '<option value=$i>$GameTitle</option>';
+							$i += 1;
+						}
+				echo'	</select>
 				      	<input type="submit" value="start/stop">
 				      </form>';
 			}
 		echo "</div>";
 		}
+		$stmt2->close();
 		$stmt->close();
 		$dbCon->close();
 	?>
