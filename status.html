@@ -9,7 +9,6 @@
 	<?php require "header.php";?>
 <div class="content">
 	<?php require "nav.php";?>
-
 	<?php
 		$n = $_SESSION['uname']; 
 		$dbCon = dbConnect();
@@ -20,30 +19,31 @@
 		$stmt->fetch();
 		$stmt->close();
 	?>
-
-	<h2>Welcome <?php echo "$n"; ?>!</h2>
-	
-	<table>
-		<tr>
-			<th>Game</th>
-			<th>Server IP</th>
-			<th>CPU</th>
-			<th>Bandwidth</th>
-			<th>HDD Space</th>
-			<th>RAM</th>
-			<th>Price</th>
-		</tr>
+	<h2>Welcome <?php echo $n; ?>!</h2>
 	<?php
-		$stmt = $dbCon->prepare("SELECT GameId, IP, CPUallo, BANDallo, HDDallo, RAMallo, Price FROM VirtualMachine WHERE AccountId=?;");
+		$stmt = $dbCon->prepare("SELECT Title, VirtualMachineId, IP, isRunning 
+				 	 FROM VirtualMachine, Game 
+				 	 WHERE AccountId=? AND Game.GameId = VirtualMachine.GameId;");
 		$stmt->bind_param("i", $accountID);
 		$stmt->execute();
-		$stmt->bind_result($GameId, $IP, $CPUallo, $BANDallo, $HDDallo, $RAMallo, $Price);
-		echo "<tr>";
+		$stmt->bind_result($Title, $VirtualMachineId, $IP, $isRunning);
 		while ($stmt->fetch()){
-			printf("<td> %s </td><td> %s </td><td>%s </td><td> %s </td>",$GameId, $IP, $CPUallo, $BANDallo);
-			printf("<td> %s </td><td> %s </td><td> %s </td>", $HDDallo, $RAMallo, $Price);
+			echo '<div class="vm">';
+			echo "<h3>ID: $VirtualMachineId</h3><br>";
+			if ($isRunning){
+				echo "<table><td>IP:</td><td>$IP</td><td>Game:</td><td>$Title</td></table><br>";
+				echo "Status: $isRunning";
+			} else {
+				
+				echo '<form action="" method="POST">
+					<select name="game">
+						<option value="1">Minecraft</option>
+					</select>
+				      	<input type="submit" value="start/stop">
+				      </form>';
+			}
+		echo "</div>";
 		}
-		echo "</tr></table>";
 		$stmt->close();
 		$dbCon->close();
 	?>

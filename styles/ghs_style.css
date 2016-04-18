@@ -3,14 +3,25 @@ body {
 	border-color:#DC3D24;
 	min-height:400px;
 }
+.vm {
+	margin:50px auto;
+	width:600px;
+	height:200px;
+	padding:10px;
+	border-width:5px;
+	border-color:#0B3C5D;
+	border-style:solid;
+
+
+}
 .content {
-	width:80%;
+	width:60%;
 	margin:50px auto;
 	background-color:#328CC1;
 	
 }
 header {
-	width:80%;
+	width:60%;
 	margin:50px auto;
 	color: #D9B310;
 	background-color:#1D2731;

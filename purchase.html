@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
@@ -6,30 +7,30 @@
 <body>
 	<?php require "header.php";?>
 <div class="content">
-<php require "nav.php";?>
+<?php require "nav.php";?>
 	<form action="purchase.php" method="post">
 		<fieldset><legend>Low</legend>
 			<label="low" class="option">
 			<ul>
 				<li>1GB RAM</li>
-				<li>10GM HDD </li>
+				<li>10MB HDD </li>
 				<li>5Pl</li>
 			</ul>
 			<input type="radio" name="option" id="low" value="low" checked>
 		</fieldset></label><br/>
 			<label for="med" class="option"><fieldset><legend>Medium</legend>
 			<ul>
-				<li>1GB RAM</li>
-				<li>10GM HDD </li>
+				<li>2GB RAM</li>
+				<li>1GB HDD </li>
 				<li>5Pl</li>
 			</ul>
 			<input type="radio" id="med" name="option" value="med">
 		</fieldset></label><br/>
 			<label for="high" class="option"><fieldset><legend>High</legend>
 			<ul>
-				<li>1GB RAM</li>
-				<li>10GM HDD </li>
-				<li>5Pl</li>
+				<li>4GB RAM</li>
+				<li>2GBGM HDD </li>
+				<li>10Pl</li>
 			</ul>
 			<input type="radio" id="high" name="option" value="high">
 		</fieldset></label><br/>

@@ -51,7 +51,7 @@ CREATE TABLE VirtualMachine
     BANDallo varchar(255),
     HDDallo varchar(255),
     RAMallo varchar(255),
-    isRunning boolean,
+    isRunning int,
     primary key (VirtualMachineId, ComputerId),
     foreign key (ComputerId) references Computer(ComputerId),
     foreign key (AccountId) references Users(AccountId),
