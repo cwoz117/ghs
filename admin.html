@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css">
-	<title>ADMIN</title>
+	<title>Debug</title>
 	<?php require 'ghslib.php'; ?>
 </head>
 <body>
 	<?php require "header.php";?>
 <div class="content">
-	<?php require "nav.php";?>
+<?php require "nav.php";?>
+<div style="padding:25px">
 <h3>Users</h3><table><tr>
 	<th>AccountID</th><th>Birthday</th><th>Address</th><th>FirstName</th><th>MiddleInitial</th>
 	<th>LastName</th><th>Username</th><th>Password</th><th>Email</th><th>phoneNumber</th></tr>
@@ -60,7 +61,7 @@
 
 <h3>Virtual Machines</h3><table><tr>
 	<th>VirtualMachineID</th><th>ComputerID</th><th>AccountID</th><th>GameID</th><th>Price</th><th>IP</th>
-	<th>CPU Allocation</th><th>Bandwidth Allocation</th><th>HDD Allocation</th><th>RAM Allocation</th></tr>
+	<th>CPU Allocation</th><th>Bandwidth Allocation</th><th>HDD Allocation</th><th>RAM Allocation</th><th>Running?</th></tr>
 	<?php
 		$sql = "SELECT * FROM VirtualMachine;";
 		$result = $dbCon->query($sql);
@@ -74,7 +75,8 @@
 			echo "<td>" . $row["CPUallo"] ."</td>";
 			echo "<td>" . $row["BANDallo"] ."</td>";
 			echo "<td>" . $row["HDDallo"] ."</td>";
-			echo "<td>" . $row["RAMallo"] ."</td></tr>";
+			echo "<td>" . $row["RAMallo"] ."</td>";
+			echo "<td>" . $row["isRunning"] . "</td></tr>";
 		}
 	?></table>
 	
@@ -104,7 +106,7 @@
 		}
 		$dbCon->close();
 	?></table>
-
+</div>
 <?php require "footer.php";?>
 </div>
 </body>

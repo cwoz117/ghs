@@ -18,12 +18,17 @@
 	$IP = "1.1.1.1";// Again, should be set via loadbalancing w/ computer ID.
 	$isRunning = 0;
 
-	if(isset($_POST["isRunning"]) {
-		$stmt = $con->prepare("UPDATE VirtualMachine SET GameId=?, isRunning=? WHERE VirtualMachineId=?;");
-		$stmt->bind_param("iii", $_POST["VMid"], $_POST["isRunning"], $_POST["VMid"]);
-		$stmt->execute();
-		$stmt->close();
-	} else {
+	if(isset($_POST['isRunning'])) {
+		$GameID = $_POST['GameID'];
+		$isRunning = $_POST['isRunning'];
+		$VMid = $_POST['VMid'];
+		$sql = 'UPDATE VirtualMachine SET GameId="' . $GameID . '", isRunning="' . $isRunning . '" WHERE VirtualMachineId="' . $VMid . '";';
+		$con->query($sql);
+	} elseif(isset($_POST['deleteVM'])) {
+		$VMid = $_POST['deleteVM'];
+		$sql = 'DELETE FROM VirtualMachine WHERE VirtualMachineId="' . $VMid . '" AND AccountId="' . $AccountId . '";';
+		$con->query($sql);
+	}  else {
 	// Set VM based on options.
 	switch ($_POST["option"]) {
 		case ("low"):

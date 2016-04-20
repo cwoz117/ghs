@@ -60,3 +60,19 @@ footer {
 	margin: 50px auto;
 	text-align:center;
 }
+table, th, td {
+	border: 1px solid black;
+	vertical-align: center;
+	text-align: center;
+	border-collapse: collapse;
+}
+th, td {
+	padding: 2px;
+}
+th {
+	background-color: #1D2731;
+	color: #D9B310;
+}
+#register {
+	border: none;
+}

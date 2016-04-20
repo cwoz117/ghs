@@ -10,13 +10,13 @@
 
 	<form style="margin:50px;" action="register.php" method="post">
 	<fieldset style="margin:10px;"><legend>User Info</legend>
-		<table class="reg">
+		<table class="reg" id="register">
 			<tr><td>Username:</td><td><input type="text" name="uname"><td></tr>
-			<tr><td>Password:</td><td><input type="text" name="pass"><td></tr>
+			<tr><td>Password:</td><td><input type="password" name="pass"><td></tr>
 		</table>
 	</fieldset>
 	<fieldset style="margin:10px;"><legend>Personal Info</legend>
-		<table class="reg">
+		<table class="reg" id="register">
 			<tr><td>Email:</td> 	<td><input type="text" name="email"></td></tr>
 			<tr><td>First Name:</td><td><input type="text" name="fname"></td>
 			<td>Middle init.</td> 	<td><input type="text" name="mname"></td>
@@ -26,7 +26,7 @@
 		</table>
 	</fieldset>
 	<fieldset style="margin:10px;"><legend>Payment Info</legend>
-	<table class="reg">
+	<table class="reg" id="register">
 		<tr><td>Card No.<td><td><input type="text" name="cardno"></td></tr>
 		<tr><td>Name on Card:<td><td><input type="text" name="cardname"></td></tr>
 		<tr><td>Expiration Date:<td><td><input type="text" name="expdate"></td>

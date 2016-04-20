@@ -18,6 +18,15 @@
 		$stmt->bind_result($accountID);
 		$stmt->fetch();
 		$stmt->close();
+
+		//GET LIST OF GAMES HERE:
+		$sql = "SELECT Title FROM Game;";
+		$game_list = $dbCon->query($sql);
+		$gameList = [];
+		$i=0;
+		while($row = $game_list->fetch_assoc()){
+			$gameList[$i++] = $row["Title"];
+		}
 	?>
 	<h2>Welcome <?php echo $n; ?>!</h2>
 	<?php
@@ -29,29 +38,30 @@
 		$stmt->bind_result($Title, $VirtualMachineId, $IP, $isRunning);
 		while ($stmt->fetch()){
 			echo '<div class="vm">';
-			echo "<h3>ID: $VirtualMachineId</h3><br>";
 			if ($isRunning){
-				echo "<table><td>IP:</td><td>$IP</td><td>Game:</td><td>$Title</td></table><br>";
-				echo "Status: $isRunning";
+				echo "<table><tr><th>ID</th><th>IP</th><th>Game</th></tr><tr><td>$VirtualMachineId</td><td>$IP</td><td>$Title</td></tr></table><br>";
+				echo "Status: Running";
+				echo '<form action="updateVM.php" method="post"><input type="hidden" name="VMid" value="'. $VirtualMachineId . '"><input type="hidden" name="GameID" value="1">
+					<input type = "hidden" name="isRunning" value="0"><input type="submit" value="Stop"></form>';
 			} else {
+				echo "Status: Not Running<br>";
+				echo "VM ID: " . $VirtualMachineId;
+				echo '<form action="updateVM.php"  method="POST"><input type="hidden" name="VMid" value="' . $VirtualMachineId . '">
+					 <select name="GameID">';
+					
+					// PRINT LIST OF GAMES
+					for ($x=1; $x <= count($gameList); $x++){
+						echo '<option value="' . $x . '">' . $gameList[$x-1] . '</option>';
+					}
 
-				echo '<form action="" method="POST">
-					<select name="game">';
-						$stmt2->$dbCon->prepare("SELECT Title FROM Game;");
-						$stmt2->execute();
-						$stmt2->bind_result($GameTitle);
-						$i = 1;
-						while($stmt2->fetch()){
-							echo '<option value=$i>$GameTitle</option>';
-							$i += 1;
-						}
-				echo'	</select>
-				      	<input type="submit" value="start/stop">
+				echo '</select>
+					<input type="hidden" name="isRunning" value="1">
+				      	<input type="submit" value="Start">
 				      </form>';
 			}
+		echo '<form action="updateVM.php" method="POST"><input type="hidden" name="deleteVM" value="'; echo $VirtualMachineId; echo '"><input type="submit" value="Delete"></form>';
 		echo "</div>";
 		}
-		$stmt2->close();
 		$stmt->close();
 		$dbCon->close();
 	?>

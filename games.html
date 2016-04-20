@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles/ghs_style.css"/>
-	<title>TEMPLATE</title>
+	<title>Games</title>
 </head>
 <body>
-	<?php require "header.php";?>
-	<div class="content">
-		<?php require "nav.php";?>
-		<ul>
-			<?php require 'ghslib.php';
-			$dbCon = dbConnect();
-			$sql = "SELECT Title FROM Game;";
-			$result = $dbCon->query($sql);
-			while($row = $result->fetch_assoc()) {
-				echo "<li>" . $row["Title"] ."</li>";
-			} ?>
-		</ul>
-		<?php require "footer.php";?>
-	</div>
+<?php require "header.php";?>
+<div class="content">
+<?php require "nav.php";?>
+<div style="padding:25px">
+<h3>Take a look at our wonderful collection!</h3>
+<table>
+<tr><th>Title</th><th>Rating</th></tr>
+<?php require 'ghslib.php';
+$dbCon = dbConnect();
+$sql = "SELECT Title, Rating FROM Game;";
+$result = $dbCon->query($sql);
+while($row = $result->fetch_assoc()) {
+	echo "<tr>";
+	echo "<td>" . $row["Title"] ."</td><td>" . $row["Rating"] . "</td>";
+	echo "</tr>";
+} ?>
+</table>
+</div>
+<?php require "footer.php";?>
+</div>
 </body>
 </html>
