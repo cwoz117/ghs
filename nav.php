@@ -3,7 +3,7 @@
 	<ul>
 		<li><a href="index.html">Home</a></li>
 		<li><a href="games.html">Games</a></li>
-		<li><a href="admin.html">Debug</a></li>
+		<!--<li><a href="admin.html">Debug</a></li>-->
 		<?php
 		if(!isset($_SESSION['uname'])){
 			echo '<li style="float:right;margin:7px 16px 7px 16px;">

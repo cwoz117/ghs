@@ -1,6 +1,6 @@
 <footer>
 	CPSC471 <br>
 	Chris Wozniak <br>
-	Ethan H <br>
+	Ethan Hamman <br>
 	Brendan Petras
 </footer>
